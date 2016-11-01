@@ -18,6 +18,8 @@ from django.conf.urls import url
 from questions import views
 
 urlpatterns = [
-    url(r'^questions/(?P<question_number>\d+)/$', views.questions, name='questions'),
-
+    url(r'^(?P<question_number>\d+)/$', views.questions, name='questions'),
+    url(r'^add_answer/(?P<question_pk>\d+)/$', views.add_answer, name='add_answer'),
+    url(r'^add_question/$', views.add_question, name='add_question'),
+    url(r'^make_right/(?P<answer_pk>\d+)/(?P<question_pk>\d+)/$', views.make_right, name='make_right'),
 ]

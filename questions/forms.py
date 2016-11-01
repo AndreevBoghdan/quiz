@@ -29,7 +29,7 @@ class AnswerForm(ModelForm):
 
 
     def __init__(self, *args, **kwargs):
-        super(QuestionForm, self).__init__(*args, **kwargs)
+        super(AnswerForm, self).__init__(*args, **kwargs)
 
         self.fields['answer'].widget = TextInput(attrs={
             'placeholder': 'Answer'})
