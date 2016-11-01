@@ -1,0 +1,14 @@
+.idea
+xapian_index
+cache/*
+storage/*
+static/*
+search/*
+!.gitignore
+*.pyc
+*~
+*.swp
+tags
+*.db
+*.sqlite3
+venv/
