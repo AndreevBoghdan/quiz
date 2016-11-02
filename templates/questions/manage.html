@@ -28,20 +28,34 @@
     </ul>
     {% if question.count != 4 %}
     <p>Create one more answer</p>
-    <form method="POST" action='{% url "add_answer" question.pk %}' name="form-{{question.pk}}" id="form-{{question.pk}}">
+    {% if question.pk == pk %}
+    <form method="POST" action='{% url "manage" %}' name="form-{{question.pk}}" id="form-{{question.pk}}">
+    {% csrf_token %}
+            {% for field in invalid %}
+            <label for="{{ field.name}}"></label>
+            <p class='error'>{{ field.errors.0 }}</p>
+                 {{ field }}
+            {% endfor %}
+            <input hidden='hidden' name="pk" value='{{ question.pk}}'type="text"> </input>
+            <input type="submit" value="Create answer"/>
+    </form>
+    {% else %}
+    <form method="POST" action='{% url "manage" %}' name="form-{{question.pk}}" id="form-{{question.pk}}">
     {% csrf_token %}
             {% for field in ansform %}
             <label for="{{ field.name}}"></label>
             <p class='error'>{{ field.errors.0 }}</p>
                  {{ field }}
             {% endfor %}
+            <input hidden='hidden' name="pk" value='{{ question.pk}}'type="text"> </input>
             <input type="submit" value="Create answer"/>
     </form>
+    {% endif %}
 
     {% endif %}
 {% endfor %}
 <h2>Create one more question</h2>
-<form method="POST" action='{% url "add_question" %}' name="form-question" id="form-question">
+<form method="POST" action='{% url "manage" %}' name="form-question" id="form-question">
 {% csrf_token %}
         {% for field in qform %}
         <label for="{{ field.name}}"></label>
