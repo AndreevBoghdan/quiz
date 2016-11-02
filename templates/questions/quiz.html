@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block title %}
+	QUIZ
+{% endblock title %}
+
+{% block extra_head %}
+
+
+{% endblock extra_head %}
+
+{% block content %}
+
+<div class="content">
+<form name="quiz">
+
+{% for question, answers in questions %}
+{% if forloop.first %}
+<div id="q{{forloop.counter0}}">
+<h2>Question: {{question.question}}</h2>
+<p>Answers:</p>
+<ol>
+    {% for answer in answers %}
+    <li>
+        <input type="radio" value="{{forloop.counter0}}">{{ answer.answer}}</input>
+    </li>
+    {% endfor %}
+</ol>
+<input type="button" value="Answer" />
+</div>
+{% else %}
+<div id="q{{forloop.counter0}}" style="display:none;">
+<h2>Question: {{question.question}}</h2>
+<p>Answers:</p>
+<ol>
+    {% for answer in answers %}
+    <li>
+        <input type="radio" value="{{forloop.counter0}}">{{ answer.answer}}</input>
+    </li>
+    {% endfor %}
+</ol>
+<input type="button" value="Answer" />
+</div>
+{% endif %}
+
+{% endfor %}
+
+</form>
+
+
+</div>
+
+
+{% endblock %}

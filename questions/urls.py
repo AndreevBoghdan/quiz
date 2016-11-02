@@ -19,6 +19,7 @@ from questions import views
 
 urlpatterns = [
     url(r'^(?P<question_number>\d+)/$', views.questions, name='questions'),
-    url(r'^add_question/$', views.add_question, name='add_question'),
     url(r'^make_right/(?P<answer_pk>\d+)/(?P<question_pk>\d+)/$', views.make_right, name='make_right'),
+    url(r'^delete_answer/(?P<answer_pk>\d+)/$', views.delete_answer, name='delete_answer'),
+    url(r'^delete_question/(?P<question_pk>\d+)/$', views.delete_question, name='delete_question'),
 ]

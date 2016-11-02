@@ -14,19 +14,18 @@
 
 <div class="content">
 {% for question, answers in questions %}
-<h2>Question: {{question.question}}</h2>
+<h2>Question: {{question.question}} <a href="{% url 'delete_question' question.pk %}">✖</a></h2>
 <p>{{question.statistics.percent}} % answered correctly</p>
 <p>Answers:</p>
     <ul>
     {% for answer in answers %}
-    <li><a href="{% url 'make_right' answer.pk question.pk %}">{{ answer.answer }}</a></li>
-    {% if answer.is_Correct %}
-    <span>✓</span>
-    {% endif %}
+    <li><a href="{% url 'make_right' answer.pk question.pk %}">{{ answer.answer }}</a>
+    {% if answer.is_Correct %}✓{% endif %} <a href="{% url 'delete_answer' answer.pk %}">✖</a>
+    </li>
 
     {% endfor %}
     </ul>
-    {% if question.count != 4 %}
+    {% if question.count <= 3 %}
     <p>Create one more answer</p>
     {% if question.pk == pk %}
     <form method="POST" action='{% url "manage" %}' name="form-{{question.pk}}" id="form-{{question.pk}}">
