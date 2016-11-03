@@ -15,12 +15,13 @@ Including another URLconf
     3. Add a URL to urlpatterns:  url(r'^blog/', include(blog_urls))
 """
 from django.conf.urls import url
-from django.contrib import admin
 from questions import views
-from django.conf.urls import include
 
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
-    url(r'^$', views.manage, name='manage'),
-    url(r'^questions/', include('questions.urls')),
+    url(r'^$', views.questions, name='questions'),
+    url(r'^make_right/(?P<answer_pk>\d+)/(?P<question_pk>\d+)/$', views.make_right, name='make_right'),
+    url(r'^delete_answer/(?P<answer_pk>\d+)/$', views.delete_answer, name='delete_answer'),
+    url(r'^delete_question/(?P<question_pk>\d+)/$', views.delete_question, name='delete_question'),
+    url(r'^end_page/(?P<right>\d+)/(?P<total>\d+)/$', views.end_page, name='end_page'),
+
 ]

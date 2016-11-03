@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block title %}
+	MANAGER PAGE
+{% endblock title %}
+
+{% block extra_head %}
+
+{% endblock extra_head %}
+
+{% block content %}
+
+<div class="content">
+{% for question, answers in questions %}
+<h2>Question: {{question.question}} <a href="{% url 'delete_question' question.pk %}">✖</a></h2>
+<p>{{question.statistics.percent}} % answered correctly</p>
+<p>Answers:</p>
+    <ul>
+    {% for answer in answers %}
+    <li><a href="{% url 'make_right' answer.pk question.pk %}">{{ answer.answer }}</a>
+    {% if answer.is_Correct %}✓{% endif %} <a href="{% url 'delete_answer' answer.pk %}">✖</a>
+    </li>
+
+    {% endfor %}
+    </ul>
+    {% if question.count <= 3 %}
+    <p>Create one more answer</p>
+    {% if question.pk == pk %}
+    <form method="POST" action='{% url "manage" %}' name="form-{{question.pk}}" id="form-{{question.pk}}">
+    {% csrf_token %}
+            {% for field in invalid %}
+            <label for="{{ field.name}}"></label>
+            <p class='error'>{{ field.errors.0 }}</p>
+                 {{ field }}
+            {% endfor %}
+            <input hidden='hidden' name="pk" value='{{ question.pk}}'type="text"> </input>
+            <input type="submit" value="Create answer"/>
+    </form>
+    {% else %}
+    <form method="POST" action='{% url "manage" %}' name="form-{{question.pk}}" id="form-{{question.pk}}">
+    {% csrf_token %}
+            {% for field in ansform %}
+            <label for="{{ field.name}}"></label>
+            <p class='error'>{{ field.errors.0 }}</p>
+                 {{ field }}
+            {% endfor %}
+            <input hidden='hidden' name="pk" value='{{ question.pk}}'type="text"> </input>
+            <input type="submit" value="Create answer"/>
+    </form>
+    {% endif %}
+
+    {% endif %}
+{% endfor %}
+<h2>Create one more question</h2>
+<form method="POST" action='{% url "manage" %}' name="form-question" id="form-question">
+{% csrf_token %}
+        {% for field in qform %}
+        <label for="{{ field.name}}"></label>
+        <p class='error'>{{ field.errors.0 }}</p>
+              {{ field }}
+        {% endfor %}
+        <input type="submit" value="Create question"/>
+</form>
+
+
+</div>
+
+
+{% endblock %}
