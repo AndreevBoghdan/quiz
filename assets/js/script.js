@@ -44,6 +44,6 @@ if(isCorrect=='True'){
 } else {
     percent = right*100/(total+1)
 }
-$("#q"+questionPK).after("<p id='q"+questionPK+"-stat'>"+percent+" % answered right </p>");
+$("#q"+questionPK).after("<p id='q"+questionPK+"-stat'>"+(percent).toFixed(2)+" % answered right </p>");
 setTimeout(submit, 3000);
 }

@@ -3,6 +3,15 @@ from __future__ import unicode_literals
 from django.db import models
 
 # Create your models here.
+class Quiz(models.Model):
+    class Meta():
+        db_table = 'quiz'
+
+    name = models.CharField(max_length=200, default='new Quiz')
+
+    def __str__(self):
+        return self.name
+
 class Statistic(models.Model):
     class Meta():
         db_table = 'stat'
@@ -27,13 +36,13 @@ class Question(models.Model):
     question = models.CharField(max_length=200)
     count = models.IntegerField(default=0)
     statistics = models.ForeignKey(Statistic, related_name='stat')
+    quiz = models.ForeignKey(Quiz, related_name='quiz')
 
     def save(self, force_insert=False, force_update=False, using=None, update_fields=True):
         if self.answers is None:
             self.count = 0
         else:
             self.count = len(Answer.objects.filter(question=self))
-            self.statistics = Statistic.objects.create()
         super(Question, self).save()
 
     def __str__(self):

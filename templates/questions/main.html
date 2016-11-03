@@ -12,8 +12,14 @@
 {% block content %}
 
 <div class="content">
-<p>{{right}} of {{total}} questions correct</p>
-<a href="{% url 'questions' pk %}">Start from beginning</a>
+<h2>Quizes:</h2>
+<ol>
+    {% for quiz in quizes %}
+        <li><a href="{% url 'manage' quiz.pk %}">Manage {{quiz.name}}</a> <a href="{% url 'start' quiz.pk %}"> Start Quiz</a></li> 
+    {% endfor %}
+</ol>
+
+
 </div>
 
 

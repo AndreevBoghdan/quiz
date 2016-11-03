@@ -21,6 +21,8 @@ from django.conf.urls import include
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$', views.manage, name='manage'),
+    url(r'^$', views.main, name='main'),
+    url(r'^manage/(?P<quiz_pk>\d+)/$', views.manage, name='manage'),
+
     url(r'^questions/', include('questions.urls')),
 ]

@@ -1,5 +1,5 @@
 from django.contrib import admin
-from models import Answer, Question, Statistic
+from models import Answer, Question, Statistic, Quiz
 
 
 class QuestionAdmin(admin.ModelAdmin):
@@ -10,6 +10,13 @@ class QuestionAdmin(admin.ModelAdmin):
     list_display = ( 'question', 'count', 'statistics')
 
 admin.site.register(Question, QuestionAdmin)
+
+class QuizAdmin(admin.ModelAdmin):
+    """
+    Quiz admin
+    """
+
+admin.site.register(Quiz, QuizAdmin)
 
 class AnswerAdmin(admin.ModelAdmin):
     """
@@ -23,7 +30,7 @@ admin.site.register(Answer, AnswerAdmin)
 
 class StatisticAdmin(admin.ModelAdmin):
     """
-    Answer admin
+    Statistic admin
     """
 
 
