@@ -18,10 +18,12 @@ from django.conf.urls import url
 from questions import views
 
 urlpatterns = [
-    url(r'^$', views.questions, name='questions'),
-    url(r'^make_right/(?P<answer_pk>\d+)/(?P<question_pk>\d+)/$', views.make_right, name='make_right'),
+    url(r'^(?P<quiz_pk>\d+)/$', views.questions, name='questions'),
+    url(r'^start/(?P<quiz_pk>\d+)/$', views.start, name='start'),
+    url(r'^reset/(?P<quiz_pk>\d+)/$', views.reset, name='reset'),
+    url(r'^make_right/(?P<answer_pk>\d+)/(?P<question_pk>\d+)/(?P<quiz_pk>\d+)/$', views.make_right, name='make_right'),
     url(r'^delete_answer/(?P<answer_pk>\d+)/$', views.delete_answer, name='delete_answer'),
-    url(r'^delete_question/(?P<question_pk>\d+)/$', views.delete_question, name='delete_question'),
-    url(r'^end_page/(?P<right>\d+)/(?P<total>\d+)/$', views.end_page, name='end_page'),
+    url(r'^delete_question/(?P<question_pk>\d+)/(?P<quiz_pk>\d+)/$', views.delete_question, name='delete_question'),
+    url(r'^end_page/(?P<right>\d+)/(?P<total>\d+)/(?P<quiz_pk>\d+)/$', views.end_page, name='end_page'),
 
 ]
