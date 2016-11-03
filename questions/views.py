@@ -57,15 +57,36 @@ def manage(request,):
             'ansform': ansform,
             })
 
+def end_page(request, right, total):
+	return render(request, 'questions/end_page.html',
+                    {'right': right,
+                    'total': total
+                    })
 
-def questions(request, question_number=None):
+def questions(request):
     questions = []
     for question in Question.objects.filter(count__gte=1):
         questions.append((question,question.answers.filter()))
 
-    return render(request, 'questions/quiz.html',
-                    {'questions': questions,
-                    })
+    if request.method == "POST":
+        right_count= 0
+        total = len(Question.objects.filter(count__gte=1))
+
+        for question in Question.objects.filter(count__gte=1):
+            user_answer = request.POST.get('answer-on-' + str(question.pk))
+            right_answer = Answer.objects.get(question=question, is_Correct=True)
+            if right_answer.answer == user_answer:
+                right_count += 1
+                question.statistics.right += 1
+            question.statistics.total += 1
+            question.statistics.save()
+
+    	return redirect('end_page', right=right_count, total=total)
+        
+    else:
+        return render(request, 'questions/quiz.html',
+                        {'questions': questions,
+                        })
 
 
 

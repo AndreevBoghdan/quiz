@@ -13,11 +13,13 @@ class Statistic(models.Model):
 
     def save(self, force_insert=False, force_update=False, using=None, update_fields=True):
         try:    
-            self.percent = self.right / self.total
+            self.percent = self.right * 100 / self.total
         except ZeroDivisionError:
             self.percent = 0
         super(Statistic, self).save()
 
+    def __str__(self):
+        return str(self.percent)
 
 class Question(models.Model):
     class Meta():
