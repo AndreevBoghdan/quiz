@@ -21,7 +21,7 @@
     <ul>
     {% for answer in answers %}
     <li><a href="{% url 'make_right' answer.pk question.pk quiz_pk %}">{{ answer.answer }}</a>
-    {% if answer.is_Correct %}✓{% endif %} <a href="{% url 'delete_answer' answer.pk %}">✖</a>
+    {% if answer.is_Correct %}✓{% endif %} <a href="{% url 'delete_answer' answer.pk quiz_pk %}">✖</a>
     </li>
 
     {% endfor %}

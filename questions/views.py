@@ -139,10 +139,10 @@ def make_right(request, answer_pk, question_pk, quiz_pk):
 
 
 @require_http_methods(["GET"])
-def delete_answer(request, answer_pk):
+def delete_answer(request, answer_pk,quiz_pk):
 	answer = Answer.objects.get(pk=answer_pk)
 	answer.delete()
-	return redirect('manage')
+	return redirect('manage', quiz_pk=quiz_pk)
 
 
 @require_http_methods(["GET"])
