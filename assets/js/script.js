@@ -14,8 +14,11 @@ function submit() {
 function nextQuestion(questionPK, answerNumber, isCorrect, right, total, questionNumber) {
 $(".answer-q"+questionPK+'-True').attr('disabled', 'disabled');
 $(".answer-q"+questionPK+'-False').attr('disabled', 'disabled');
-$(".answer-q"+questionPK+'-True').css({"background-color": "green"})
-$(".answer-q"+questionPK+'-False').css({"background-color": "red"})
+$(".answer-q"+questionPK+'-False').removeAttr('onClick');
+$(".answer-q"+questionPK+'-True').removeAttr('onClick');
+
+$(".answer-q"+questionPK+'-True').css({"background": "green"})
+$(".answer-q"+questionPK+'-False').css({"background": "red"})
 $("#q"+questionPK+"-a"+answerNumber).attr("checked", true)
 width = (questionNumber)*100/$(".question").length
 $("#myBar").css({'width': width + '%' }); 
@@ -33,8 +36,8 @@ setTimeout(func, 3000, questionPK);
 function lastQuestion(questionPK, answerNumber, isCorrect, right, total, questionNumber) {
 $(".answer-q"+questionPK+'-True').attr('disabled', 'disabled');
 $(".answer-q"+questionPK+'-False').attr('disabled', 'disabled');
-$(".answer-q"+questionPK+'-True').css({"background-color": "green"})
-$(".answer-q"+questionPK+'-False').css({"background-color": "red"})
+$(".answer-q"+questionPK+'-True').css({"background": "green"})
+$(".answer-q"+questionPK+'-False').css({"background": "red"})
 $("#q"+questionPK+"-a"+answerNumber).attr("checked", true)
 width = (questionNumber)*100/$(".question").length
 $("#myBar").css({'width': width + '%' }); 

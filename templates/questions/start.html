@@ -2,19 +2,32 @@
 {% load staticfiles %}
 
 {% block title %}
-	MANAGER PAGE
+	START QUIZ
 {% endblock title %}
 
 {% block extra_head %}
-
+<link rel="stylesheet" href="{% static 'css/screen.css' %}" media="screen, projection"/>
 {% endblock extra_head %}
 
 {% block content %}
 
-<div class="content">
-<h2>Welcome to Quiz {{quiz.name}}</h2>
-<a href="{% url 'questions' quiz.pk%}">Start Quiz</a>
+<div id="wrap">
+<div id="headline">
+        <span id='head'>{{quiz.name}}</span>
+</div>
 
+<div id="content" class="clearfix">
+<div id='quiz'>
+<h2 class='start'>Welcome to Quiz {{quiz.name}}</h2>
+<div class='start'>
+<a class='button' href="{% url 'questions' quiz.pk%}">Start Quiz</a>
+</div>
+</div>
+</div>
+</div>
+
+<div id="footer">
+footer
 </div>
 
 

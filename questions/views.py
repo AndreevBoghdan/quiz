@@ -67,7 +67,7 @@ def end_page(request, right, total, quiz_pk):
                     {'right': right,
                     'total': total,
                     'name': quiz.name,
-                    'pk': quiz_pk,
+                    'quiz': quiz,
                     })
 
 def start(request, quiz_pk):
@@ -121,6 +121,7 @@ def questions(request, quiz_pk):
     else:
         return render(request, 'questions/quiz.html',
                         {'questions': questions,
+                        'name':quiz.name
                         })
 
 
