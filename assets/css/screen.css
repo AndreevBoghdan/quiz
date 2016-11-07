@@ -40,7 +40,7 @@
 }
 
 a.button {
-  width: 22%;
+  width: 20%;
   text-align: center;
   display: inline-block;
   font-family: arial, sans-serif;
@@ -79,7 +79,7 @@ ul.answers{
 
 ul.answers li {
    height: 100%;
-   width: 22%;
+   width: 20%;
    display: inline;
    margin: 2%;
 }
