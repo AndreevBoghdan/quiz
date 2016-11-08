@@ -12,22 +12,16 @@
 {% block content %}
 
 <div id="wrap">
-<div id="headline">
-        <span id='head'>{{quiz.name}}</span>
-</div>
+
 
 <div id="content" class="clearfix">
 <div id='quiz'>
 <h2 class='start'>Welcome to Quiz {{quiz.name}}</h2>
 <div class='start'>
-<a class='button' href="{% url 'questions' quiz.pk%}">Start Quiz</a>
+<a href="{% url 'questions' quiz.pk%}">Start Quiz</a>
 </div>
 </div>
 </div>
-</div>
-
-<div id="footer">
-footer
 </div>
 
 
