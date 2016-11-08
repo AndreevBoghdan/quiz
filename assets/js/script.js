@@ -23,8 +23,11 @@ $(".answer-q"+questionPK+'-True').css({"background": "#2E8B57", 'box-shadow':'0p
 $("#q"+questionPK+"-a"+answerNumber).attr("checked", true)
 if (isCorrect == "False"){
 	$("#answer-"+answerNumber+'-on-'+questionPK).css({"background": "#DCDCDC",'box-shadow':'0px 0px 0px 14px rgba(200, 50, 50, 1)'})
-
+    $("#result-wrong-"+questionPK).show()
+} else {
+	$("#result-correct-"+questionPK).show()
 }
+
 
 $("#next-"+questionPK).show();
 }
@@ -39,6 +42,9 @@ $(".answer-q"+questionPK+'-True').css({"background": "#2E8B57", 'box-shadow':'0p
 $("#q"+questionPK+"-a"+answerNumber).attr("checked", true)
 if (isCorrect == "False"){
 	$("#answer-"+answerNumber+'-on-'+questionPK).css({"background": "#DCDCDC",'box-shadow':'0px 0px 0px 14px rgba(200, 50, 50, 1)'})
+    $("#result-wrong-"+questionPK).show()
+} else {
+	$("#result-correct-"+questionPK).show()
 }
 $("#next-"+questionPK).show();
 }

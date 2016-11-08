@@ -35,6 +35,8 @@
     {% endfor %}
 </ul>
 <span class='counter'>{{forloop.counter}}/{{ forloop.counter0|add:forloop.revcounter}}</span>
+<span style="display:None" id='result-correct-{{question.pk}}' class='result'>Right answer</span>
+<span style="display:None" id='result-wrong-{{question.pk}}' class='result'>Wrong answer</span>
 <a href="#" class="next" style="display:None" id="next-{{question.pk}}" onClick='event.preventDefault(); func({{question.pk}})'></a>
 </div>
 
@@ -52,6 +54,8 @@
     {% endfor %}
 </ul>
 <span class='counter'>{{forloop.counter}}/{{ forloop.counter0|add:forloop.revcounter}}</span>
+<span style="display:None" id='result-correct-{{question.pk}}' class='result'>Right answer</span>
+<span style="display:None" id='result-wrong-{{question.pk}}' class='result'>Wrong answer</span>
 <a href="#" class="next" style="display:None" id="next-{{question.pk}}" onClick='event.preventDefault(); submit()'></a>
 </div>
 
@@ -69,6 +73,8 @@
     {% endfor %}
 </ul>
 <span class='counter'>{{forloop.counter}}/{{ forloop.counter0|add:forloop.revcounter}}</span>
+<span style="display:None" id='result-correct-{{question.pk}}' class='result'>Right answer</span>
+<span style="display:None" id='result-wrong-{{question.pk}}' class='result'>Wrong answer</span>
 <a href="#" class="next" style="display:None" id="next-{{question.pk}}" onClick='event.preventDefault(); func({{question.pk}})'></a>
 </div>
 {% endif %}

@@ -197,3 +197,11 @@ body > #wrap {
 	line-height: 100px;
 	
 }
+
+.result{
+	font-size: 65px;
+	font-family: Arial sans-serif;
+	position: absolute;
+	left:40%;
+	bottom:295px;
+}
