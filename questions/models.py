@@ -8,6 +8,8 @@ class Quiz(models.Model):
         db_table = 'quiz'
 
     name = models.CharField(max_length=200, default='new Quiz')
+    contentName = models.CharField(max_length=100, blank=True)
+    contentChannel = models.CharField(max_length=100, blank=True)
 
     def __str__(self):
         return self.name
