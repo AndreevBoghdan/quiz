@@ -121,7 +121,7 @@ def questions(request, quiz_pk):
     else:
         return render(request, 'questions/quiz.html',
                         {'questions': questions,
-                        'name':quiz.name
+                        'quiz':quiz,
                         })
 
 

@@ -200,8 +200,15 @@ body > #wrap {
 
 .result{
 	font-size: 65px;
-	font-family: Arial sans-serif;
+	font-family: 'Arial Bold' sans-serif;
 	position: absolute;
 	left:40%;
 	bottom:295px;
+}
+
+#headline{
+	font-size: 60px;
+    font-family: 'Arial Bold';
+    background-color: transparent;
+    margin-top: 130px;
 }

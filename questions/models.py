@@ -8,6 +8,7 @@ class Quiz(models.Model):
         db_table = 'quiz'
 
     name = models.CharField(max_length=200, default='new Quiz')
+    headline = models.CharField(max_length=100, default='Quiz Headline')
 
     def __str__(self):
         return self.name
