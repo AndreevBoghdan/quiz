@@ -200,7 +200,8 @@ body > #wrap {
 
 .result{
 	font-size: 65px;
-	font-family: 'Arial Bold' sans-serif;
+	font-family: Arial sans-serif;
+	font-weight: bold;
 	position: absolute;
 	left:40%;
 	bottom:295px;
@@ -208,8 +209,56 @@ body > #wrap {
 
 #headline{
 	font-size: 60px;
-    font-family: 'Arial Bold';
+    font-family: Arial sans-serif;
+	font-weight: bold;
     background-color: transparent;
-    margin-top: 130px;
-    margin-left: 40px;
+    margin-top: 120px;
+}
+
+#stat-result{
+    background-image: url(/static/img/results.png);
+    width: 2000px;
+    height: 665px;
+    border: solid black;
+    margin-top: 200px;
+    margin-left: 70px;
+}
+
+.last-result , .average-result{
+	margin: 0px 0px;
+	font-size: 60px;
+    font-family: Arial sans-serif;
+    line-height: 53px;
+    padding-left: 70px;
+    width:835px;
+}
+.average-result{
+	float:right;
+}
+.last-result {
+	float: left;
+}
+
+.bold{
+	font-weight: bold;
+}
+
+.head{
+	font-size: 150%;
+	margin-top: 70px;
+	margin-bottom: 120px;
+}
+
+.percent{
+	margin-top: 120px;
+}
+
+.restart {
+	position:absolute;
+    right:68px;
+    bottom: 80px;
+    width: 331px;
+    height: 121px;
+    background-image: url(/static/img/restart.png);
+
 }

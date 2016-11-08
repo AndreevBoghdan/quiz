@@ -1,7 +1,6 @@
 from __future__ import unicode_literals
 
 from django.db import models
-from PIL import Image
 
 # Create your models here.
 class Quiz(models.Model):
@@ -9,7 +8,6 @@ class Quiz(models.Model):
         db_table = 'quiz'
 
     name = models.CharField(max_length=200, default='new Quiz')
-    headline = models.ImageField(upload_to='photo', null=True, blank=True)
 
     def __str__(self):
         return self.name

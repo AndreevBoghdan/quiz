@@ -62,12 +62,32 @@ def manage(request, quiz_pk):
             })
 
 def end_page(request, right, total, quiz_pk):
-	quiz = Quiz.objects.get(pk=quiz_pk)
-	return render(request, 'questions/end_page.html',
+    quiz = Quiz.objects.get(pk=quiz_pk)
+    wrong = int(total) - int(right)
+    percent = round(int(right) * 100 / int(total))
+    questions = Question.objects.filter(count__gte=1, quiz=quiz)
+    averTotal = 0
+    averRight = 0
+    averWrongQuiz = 0
+    averRightQuiz = 0
+    for question in questions:
+        averTotal += question.statistics.total
+        averRight += question.statistics.right 
+
+    averPercent = int(averRight) * 100 / int(averTotal)
+    averRightQuiz = averPercent * len(questions) / 100
+    averWrongQuiz = len(questions) - int(averRightQuiz)
+
+    return render(request, 'questions/end_page.html',
                     {'right': right,
+                    'wrong':wrong,
                     'total': total,
+                    'percent': int(percent),
                     'name': quiz.name,
                     'quiz': quiz,
+                    'averwrong': int(averWrongQuiz) ,
+                    'averright': averRightQuiz,
+                    'averpercent': int(round(averPercent)),
                     })
 
 def start(request, quiz_pk):

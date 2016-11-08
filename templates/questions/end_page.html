@@ -16,9 +16,28 @@
 
 <div id="content" class="clearfix">
 <div id='quiz'>
-<p class='start'>{{right}} of {{total}} questions correct</p>
-<div class='start'>
-<a href="{% url 'questions' quiz.pk %}">Start from beginning</a>
+
+<div id='stat-result'>
+<div class='last-result'>
+<p class='bold head'>Your result</p>
+
+<p><span class='bold' style='color:green'>{{right}}</span><span> right answers</span></p>
+<p><span class='bold' style='color:red'>{{wrong}}</span><span> wrong answers</span></p>
+<p class='percent'><span>You reached </span><span class='bold'>{{percent}} %</span></p>
+</div>
+
+<div class='average-result'>
+<p class='bold head'>Average result</p>
+
+<p><span class='bold' >{{averright}}</span><span> right answers</span></p>
+<p><span class='bold' >{{averwrong}}</span><span> wrong answers</span></p>
+<p class='percent'><span>Average rate </span><span class='bold'>{{averpercent}} %</span></p>
+</div>
+
+<a href="{% url 'questions' quiz.pk %}" class='restart'></a>
+
+</div>
+
 </div>
 </div>
 </div>
