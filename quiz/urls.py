@@ -18,11 +18,14 @@ from django.conf.urls import url
 from django.contrib import admin
 from questions import views
 from django.conf.urls import include
+from django.conf import settings
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', views.main, name='main'),
     url(r'^manage/(?P<quiz_pk>\d+)/$', views.manage, name='manage'),
+    url(r'^uploads/(?P<path>.*)$', 'django.views.static.serve',
+                                {'document_root': settings.MEDIA_ROOT}),
 
     url(r'^questions/', include('questions.urls')),
 ]
