@@ -12,23 +12,19 @@
 {% block content %}
 
 <div id="wrap">
-<div id="headline">
-        <span id='head'>{{quiz.name}}</span>
-</div>
+
 
 <div id="content" class="clearfix">
 <div id='quiz'>
 <p class='start'>{{right}} of {{total}} questions correct</p>
 <div class='start'>
-<a class='button' href="{% url 'questions' quiz.pk %}">Start from beginning</a>
+<a href="{% url 'questions' quiz.pk %}">Start from beginning</a>
 </div>
 </div>
 </div>
 </div>
 
-<div id="footer">
-footer
-</div>
+
 
 
 {% endblock %}

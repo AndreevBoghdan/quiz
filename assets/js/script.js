@@ -2,8 +2,10 @@ var yourAns = new Array;
 
 function func(questionPK) {
     $("#q"+questionPK).hide();
-    $("#q"+questionPK+"-stat").hide();
-    $("#q"+questionPK+"-stat").next().show();
+    $("#next-"+questionPK).hide();
+    $("#q"+questionPK).next().show();
+
+
 
 }
 
@@ -14,39 +16,29 @@ function submit() {
 function nextQuestion(questionPK, answerNumber, isCorrect, right, total, questionNumber) {
 $(".answer-q"+questionPK+'-True').attr('disabled', 'disabled');
 $(".answer-q"+questionPK+'-False').attr('disabled', 'disabled');
-$(".answer-q"+questionPK+'-False').removeAttr('onClick');
-$(".answer-q"+questionPK+'-True').removeAttr('onClick');
+$(".answer-q"+questionPK+'-False').attr('onClick','event.preventDefault();');
+$(".answer-q"+questionPK+'-True').attr('onClick','event.preventDefault();');
 
-$(".answer-q"+questionPK+'-True').css({"background": "green"})
-$(".answer-q"+questionPK+'-False').css({"background": "red"})
+$(".answer-q"+questionPK+'-True').css({"background": "#2E8B57", 'box-shadow':'0px 0px 0px 14px rgba(50, 247, 50, 1)'})
 $("#q"+questionPK+"-a"+answerNumber).attr("checked", true)
-width = (questionNumber)*100/$(".question").length
-$("#myBar").css({'width': width + '%' }); 
-percent=0
-if(isCorrect=='True'){
-    percent = (right+1)*100/(total+1)
-} else {
-    percent = right*100/(total+1)
-}
-$("#q"+questionPK).after("<p id='q"+questionPK+"-stat'>"+percent+" % answered right </p>");
-setTimeout(func, 3000, questionPK);
+if (isCorrect == "False"){
+	$("#answer-"+answerNumber+'-on-'+questionPK).css({"background": "#DCDCDC",'box-shadow':'0px 0px 0px 14px rgba(200, 50, 50, 1)'})
 
+}
+
+$("#next-"+questionPK).show();
 }
 
 function lastQuestion(questionPK, answerNumber, isCorrect, right, total, questionNumber) {
 $(".answer-q"+questionPK+'-True').attr('disabled', 'disabled');
 $(".answer-q"+questionPK+'-False').attr('disabled', 'disabled');
-$(".answer-q"+questionPK+'-True').css({"background": "green"})
-$(".answer-q"+questionPK+'-False').css({"background": "red"})
+$(".answer-q"+questionPK+'-False').attr('onClick','event.preventDefault();');
+$(".answer-q"+questionPK+'-True').attr('onClick','event.preventDefault();');
+
+$(".answer-q"+questionPK+'-True').css({"background": "#2E8B57", 'box-shadow':'0px 0px 0px 14px rgba(50, 247, 50, 1)'})
 $("#q"+questionPK+"-a"+answerNumber).attr("checked", true)
-width = (questionNumber)*100/$(".question").length
-$("#myBar").css({'width': width + '%' }); 
-percent=0
-if(isCorrect=='True'){
-    percent = (right+1)*100/(total+1)
-} else {
-    percent = right*100/(total+1)
+if (isCorrect == "False"){
+	$("#answer-"+answerNumber+'-on-'+questionPK).css({"background": "#DCDCDC",'box-shadow':'0px 0px 0px 14px rgba(200, 50, 50, 1)'})
 }
-$("#q"+questionPK).after("<p id='q"+questionPK+"-stat'>"+(percent).toFixed(2)+" % answered right </p>");
-setTimeout(submit, 3000);
+$("#next-"+questionPK).show();
 }

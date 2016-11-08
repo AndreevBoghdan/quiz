@@ -15,9 +15,7 @@
 {% block content %}
 
 <div id="wrap">
-<div id="headline">
-        <span id='head'>{{name}}</span>
-</div>
+
 
 <div id="content" class="clearfix">
 <div id='quiz'>
@@ -26,52 +24,52 @@
 {% for question, answers in questions %}
 {% if forloop.first %}
 <div id="q{{question.pk}}" class="question">
-<p>Q&A</p>
-<h2>{{question.question}}</h2>
+<h2 class="question-text">{{question.question}}</h2>
 
 <ul class='answers'>
     {% for answer in answers %}
     <li>
         <input type='radio' style='display:None' name='answer-on-{{question.pk}}' value="{{answer.answer}}" id='q{{question.pk}}-a{{forloop.counter0}}'></input>
-        <a href="#" class="answer-q{{question.pk}}-{{answer.is_Correct}} button" onClick='event.preventDefault(); nextQuestion({{question.pk}}, {{forloop.counter0}}, "{{answer.is_Correct}}", {{question.statistics.right}}, {{question.statistics.total}}, {{forloop.parentloop.counter}} )'> {{ answer.answer}}</a>
+        <a href="#" class="answer-q{{question.pk}}-{{answer.is_Correct}} button" id='answer-{{forloop.counter0}}-on-{{question.pk}}' onClick='event.preventDefault(); nextQuestion({{question.pk}}, {{forloop.counter0}}, "{{answer.is_Correct}}", {{question.statistics.right}}, {{question.statistics.total}}, {{forloop.parentloop.counter}} )'> {{ answer.answer}}</a>
     </li>
     {% endfor %}
 </ul>
-<span class='counter'>{{forloop.counter}}/{{ forloop.counter|add:forloop.revcounter}}</span>
+<span class='counter'>{{forloop.counter}}/{{ forloop.counter0|add:forloop.revcounter}}</span>
+<a href="#" class="next" style="display:None" id="next-{{question.pk}}" onClick='event.preventDefault(); func({{question.pk}})'></a>
 </div>
 
 {% elif forloop.last %}
 
 <div id="q{{question.pk}}" style='display:None' class="question">
-<p>Q&A</p>
-<h2>Question {{forloop.counter}}: {{question.question}}</h2>
+<h2 class="question-text">{{question.question}}</h2>
 
 <ul class='answers'>
     {% for answer in answers %}
     <li>
         <input type='radio' style='display:None' name='answer-on-{{question.pk}}' value="{{answer.answer}}" id='q{{question.pk}}-a{{forloop.counter0}}'></input>
-        <a href="#" class="button answer-q{{question.pk}}-{{answer.is_Correct}}"  value="{{ answer.answer}}" name='answer-on-{{question.pk}}' onClick='lastQuestion({{question.pk}}, {{forloop.counter0}}, "{{answer.is_Correct}}", {{question.statistics.right}}, {{question.statistics.total}}, {{forloop.parentloop.counter}})'>{{ answer.answer}}</a>
+        <a href="#" class="answer-q{{question.pk}}-{{answer.is_Correct}} button" id='answer-{{forloop.counter0}}-on-{{question.pk}}' onClick='event.preventDefault(); lastQuestion({{question.pk}}, {{forloop.counter0}}, "{{answer.is_Correct}}", {{question.statistics.right}}, {{question.statistics.total}}, {{forloop.parentloop.counter}} )'> {{ answer.answer}}</a>
     </li>
     {% endfor %}
 </ul>
-<span id='counter'>{{forloop.counter}}/{{ forloop.counter|add:forloop.revcounter}}</span>
+<span class='counter'>{{forloop.counter}}/{{ forloop.counter0|add:forloop.revcounter}}</span>
+<a href="#" class="next" style="display:None" id="next-{{question.pk}}" onClick='event.preventDefault(); submit()'></a>
 </div>
 
 {% else %}
 <div id="q{{question.pk}}" style='display:None' class="question">
-<p>Q&A</p>
-<h2>Question {{forloop.counter}}: {{question.question}}</h2>
+<h2 class="question-text">{{question.question}}</h2>
 
 <ul class='answers'>
     {% for answer in answers %}
     <li>
         <input type='radio' style='display:None' name='answer-on-{{question.pk}}' value="{{answer.answer}}" id='q{{question.pk}}-a{{forloop.counter0}}'></input>
-        <a href="#" class="button answer-q{{question.pk}}-{{answer.is_Correct}}" onClick='nextQuestion({{question.pk}}, {{forloop.counter0}}, "{{answer.is_Correct}}", {{question.statistics.right}}, {{question.statistics.total}}, {{forloop.parentloop.counter}} )'>{{ answer.answer}}</a>
+        <a href="#" class="answer-q{{question.pk}}-{{answer.is_Correct}} button" id='answer-{{forloop.counter0}}-on-{{question.pk}}' onClick='event.preventDefault(); nextQuestion({{question.pk}}, {{forloop.counter0}}, "{{answer.is_Correct}}", {{question.statistics.right}}, {{question.statistics.total}}, {{forloop.parentloop.counter}} )'> {{ answer.answer}}</a>
 
     </li>
     {% endfor %}
 </ul>
-<span class='counter'>{{forloop.counter}}/{{ forloop.counter|add:forloop.revcounter}}</span>
+<span class='counter'>{{forloop.counter}}/{{ forloop.counter0|add:forloop.revcounter}}</span>
+<a href="#" class="next" style="display:None" id="next-{{question.pk}}" onClick='event.preventDefault(); func({{question.pk}})'></a>
 </div>
 {% endif %}
 {% endfor %}
@@ -81,8 +79,6 @@
 </div>
 </div>
 
-<div id="footer">
-footer
-</div>
+
 
 {% endblock %}

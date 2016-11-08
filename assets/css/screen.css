@@ -1,3 +1,9 @@
+body{
+	background-image: url(/static/img/background.png);
+	width: 3840px;
+	height: 1920px;
+}
+
 #myProgress {
     position: relative;
     width: 100%;
@@ -23,12 +29,12 @@
 #quiz {
 	top: 50%; 
 	left: 50%; 
-	width: 800px; 
-	height: 250px; 
+	width: 2715px; 
+	height: 1100px; 
 	position: absolute; 
-	margin-top: -175px;
-	margin-left: -400px;
-    border: solid black;
+	margin-top: 12px;
+	margin-left: -60px;
+
     padding: 20px;
     border-radius: 6px;
 
@@ -39,49 +45,61 @@
 	margin: 0px;
 }
 
+.start a{
+  border-radius: 10px;
+  background-color: #DCDCDC;
+  border: 5px solid black;
+  text-align: center;
+  padding: 15px;
+  font-family: arial, sans-serif;
+  transition: all .218s ease 0s;
+  vertical-align: center;
+   text-decoration: none;
+  outline: none;
+  color: rgb(68,68,68);
+}
+
 a.button {
   width: 20%;
   text-align: center;
   display: inline-block;
   font-family: arial, sans-serif;
-  font-size: 23px;
+  overflow: hidden;
   font-weight: bold;
   color: rgb(68,68,68);
   text-decoration: none;
   user-select: none;
-  padding: .2em 1.2em;
   outline: none;
-  border: 1px solid rgba(0,0,0,.1);
-  border-radius: 6px;
-  background: rgb(245,245,245) linear-gradient(#f4f4f4, #f1f1f1);
+  background-image: url(/static/img/button.png);
+  width:780px;
+  height: 180px;
   transition: all .218s ease 0s;
-  min-height: 25px;
+  vertical-align: center;
+  border-radius: 10px;
+  bottom: 10px;
+  font-size: 80px;
+  line-height: 180px;
+
 
 }
 a.button:hover {
-  color: rgb(24,24,24);
-  border: 1px solid rgb(198,198,198);
-  background: #f7f7f7 linear-gradient(#f7f7f7, #f1f1f1);
+  
   box-shadow: 0 1px 2px rgba(0,0,0,.1);
 }
-a.button:active {
-  color: rgb(51,51,51);
-  border: 1px solid rgb(204,204,204);
-  background: rgb(238,238,238) linear-gradient(rgb(238,238,238), rgb(224,224,224));
-  box-shadow: 0 1px 2px rgba(0,0,0,.1) inset;
-}
+
 
 ul.answers{
     margin: 0;
-    padding: 4px;
+    margin-top: 108px;
+    padding: 10px;
 
 }
 
 ul.answers li {
    height: 100%;
-   width: 20%;
    display: inline;
-   margin: 2%;
+   margin-left: 55px;
+   margin-right: 63px;
 }
 
 .counter{
@@ -90,9 +108,9 @@ ul.answers li {
 }
 
 html, body, #wrap {
-	height: 100%; 
+
 	margin: 0px;
-	background: #fff;
+
 }
 body > #wrap {
 	height: auto; 
@@ -144,7 +162,9 @@ body > #wrap {
 
 .counter{
 	position:absolute;
-    bottom:20px;
+    bottom:295px;
+    font-size: 80px;
+    left: 68px;
 }
 
 #head{
@@ -156,5 +176,24 @@ body > #wrap {
 	display: block;
 	text-align: center;
 	padding: 20px;
+	font-size: 71px;
+	margin-top: 250px;
 
+}
+
+.next{
+	position:absolute;
+    right:68px;
+    bottom: 295px;
+    width: 331px;
+    height: 121px;
+    background-image: url(/static/img/next-button.png);
+}
+
+.question-text{
+	margin-top: 263px;
+	font-size: 71px;
+	margin-left: 45px;
+	line-height: 100px;
+	
 }
