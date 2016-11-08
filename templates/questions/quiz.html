@@ -19,6 +19,8 @@
 
 <div id="content" class="clearfix">
 <h2 id='headline'><img src="{{ STATIC_URL }}img/headlines/{{ quiz.name }}.png" /></h2>
+<a href="#" class="back" id="back" onClick='event.preventDefault(); window.external.PlayLCInChannelByName({{quiz.contentName}}, {{quiz.contentChannel}})'></a>
+
 <div id='quiz'>
 <form name="quiz" id="form" action='' method='post'>
 {% csrf_token %} 
