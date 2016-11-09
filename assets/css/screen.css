@@ -57,7 +57,7 @@ body{
 }
 
 a.button {
-  width: 20%;
+
   text-align: center;
   display: inline-block;
   font-family: arial, sans-serif;
@@ -96,7 +96,7 @@ ul.answers li {
    height: 100%;
    display: inline;
    margin-left: 55px;
-   margin-right: 63px;
+
 }
 
 .counter{
