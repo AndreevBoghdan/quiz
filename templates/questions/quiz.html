@@ -19,7 +19,7 @@
 
 <div id="content" class="clearfix">
 <h2 id='headline'><img src="{{ STATIC_URL }}img/headlines/{{ quiz.name }}.png" /></h2>
-<a href="#" class="back" id="back" onClick='event.preventDefault(); window.external.PlayLCInChannelByName({{quiz.contentName}}, {{quiz.contentChannel}})'></a>
+<a href="#" class="back" id="back" onClick='event.preventDefault(); window.external.PlayLCInChannelByName("{{quiz.contentName}}", "{{quiz.contentChannel}}")'></a>
 
 <div id='quiz'>
 <form name="quiz" id="form" action='' method='post'>
@@ -27,7 +27,7 @@
 {% for question, answers in questions %}
 {% if forloop.first %}
 <div id="q{{question.pk}}" class="question">
-<h2 class="question-text">{{question.question}}</h2>
+<h2 class="question-text">{{question.question}}</h2>"
 
 <ul class='answers'>
     {% for answer in answers %}
