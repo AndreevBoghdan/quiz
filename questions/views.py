@@ -92,7 +92,7 @@ def end_page(request, right, total, quiz_pk):
                     'quiz': quiz,
                     'averwrong': int(averWrongQuiz) ,
                     'averright': averRightQuiz,
-                    'averpercent': int(round(averRightQuiz * 100 / averTotal)),
+                    'averpercent': int(round(averRightQuiz * 100 / len(questions))),
                     })
 
 
