@@ -64,6 +64,7 @@ def manage(request, quiz_pk):
             'name': quiz.name,
             })
 
+
 @xframe_options_exempt
 def end_page(request, right, total, quiz_pk):
     quiz = Quiz.objects.get(pk=quiz_pk)
@@ -91,8 +92,9 @@ def end_page(request, right, total, quiz_pk):
                     'quiz': quiz,
                     'averwrong': int(averWrongQuiz) ,
                     'averright': averRightQuiz,
-                    'averpercent': int(round(averPercent)),
+                    'averpercent': int(round(averRightQuiz * 100 / averTotal)),
                     })
+
 
 def start(request, quiz_pk):
     quiz = Quiz.objects.get(pk=quiz_pk)
