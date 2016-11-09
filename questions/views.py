@@ -1,9 +1,12 @@
 from django.shortcuts import render, redirect
 from django.views.decorators.http import require_http_methods
+from django.views.decorators.clickjacking import xframe_options_exempt
 
 from .models import Question, Answer, Quiz, Statistic
 from .forms import QuestionForm, AnswerForm
+
 import signals
+
 
 
 # Create your views here.
@@ -61,6 +64,7 @@ def manage(request, quiz_pk):
             'name': quiz.name,
             })
 
+@xframe_options_exempt
 def end_page(request, right, total, quiz_pk):
     quiz = Quiz.objects.get(pk=quiz_pk)
     wrong = int(total) - int(right)
@@ -112,6 +116,7 @@ def reset(request, quiz_pk):
 
     return redirect('manage', quiz_pk=quiz_pk)
 
+@xframe_options_exempt
 def questions(request, quiz_pk):
     questions = []
     quiz = Quiz.objects.get(pk=quiz_pk)
