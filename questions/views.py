@@ -79,7 +79,7 @@ def end_page(request, right, total, quiz_pk):
         averTotal += question.statistics.total
         averRight += question.statistics.right 
     
-    averRightQuiz = (float(averRight) * len(questions)) / averTotal
+    averRightQuiz = round((float(averRight) * len(questions)) / averTotal,2)
     averWrongQuiz = len(questions) - averRightQuiz
 
     return render(request, 'questions/end_page.html',
@@ -89,9 +89,9 @@ def end_page(request, right, total, quiz_pk):
                     'percent': int(percent),
                     'name': quiz.name,
                     'quiz': quiz,
-                    'averwrong': int(averWrongQuiz) ,
+                    'averwrong': averWrongQuiz,
                     'averright': averRightQuiz,
-                    'averpercent': float(averRightQuiz) * 100 / len(questions),
+                    'averpercent': round(float(averRightQuiz) * 100 / len(questions),2),
                     })
 
 
