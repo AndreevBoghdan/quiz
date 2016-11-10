@@ -19,7 +19,7 @@
 
 <div id="content" class="clearfix">
 <h2 id='headline'><img src="{{ STATIC_URL }}img/headlines/{{ quiz.name }}.png" /></h2>
-<a href="#" class="back" id="back" onClick='event.preventDefault(); window.external.PlayLCInChannelByName("{{quiz.contentName}}", "{{quiz.contentChannel}}")'></a>
+<a href="#" class="back" id="back" onClick='event.preventDefault(); window.external.PlayLCInChannelByName("{{quiz.contentName}}", "{{quiz.contentChannel}}")' onmousedown='event.preventDefault(); window.external.PlayLCInChannelByName("{{quiz.contentName}}", "{{quiz.contentChannel}}")' ontouchstart='event.preventDefault(); window.external.PlayLCInChannelByName("{{quiz.contentName}}", "{{quiz.contentChannel}}")' ></a>
 
 <div id='quiz'>
 <form name="quiz" id="form" action='' method='post'>
@@ -33,14 +33,14 @@
     {% for answer in answers %}
     <li>
         <input type='radio' style='display:None' name='answer-on-{{question.pk}}' value="{{answer.answer}}" id='q{{question.pk}}-a{{forloop.counter0}}'></input>
-        <a href="#" class="answer-q{{question.pk}}-{{answer.is_Correct}} button" id='answer-{{forloop.counter0}}-on-{{question.pk}}' onClick='event.preventDefault(); nextQuestion({{question.pk}}, {{forloop.counter0}}, "{{answer.is_Correct}}", {{question.statistics.right}}, {{question.statistics.total}}, {{forloop.parentloop.counter}} )'> {{ answer.answer}}</a>
+        <a href="#" class="answer-q{{question.pk}}-{{answer.is_Correct}} button" id='answer-{{forloop.counter0}}-on-{{question.pk}}' onClick='event.preventDefault(); nextQuestion({{question.pk}}, {{forloop.counter0}}, "{{answer.is_Correct}}", {{question.statistics.right}}, {{question.statistics.total}}, {{forloop.parentloop.counter}} )' onmousedown='event.preventDefault(); nextQuestion({{question.pk}}, {{forloop.counter0}}, "{{answer.is_Correct}}", {{question.statistics.right}}, {{question.statistics.total}}, {{forloop.parentloop.counter}} )' ontouchstart='event.preventDefault(); nextQuestion({{question.pk}}, {{forloop.counter0}}, "{{answer.is_Correct}}", {{question.statistics.right}}, {{question.statistics.total}}, {{forloop.parentloop.counter}} )'> {{ answer.answer}}</a>
     </li>
     {% endfor %}
 </ul>
 <span class='counter'>{{forloop.counter}}/{{ forloop.counter0|add:forloop.revcounter}}</span>
 <span style="display:None" id='result-correct-{{question.pk}}' class='result'>Right answer</span>
 <span style="display:None" id='result-wrong-{{question.pk}}' class='result'>Wrong answer</span>
-<a href="#" class="next" style="display:None" id="next-{{question.pk}}" onClick='event.preventDefault(); func({{question.pk}})' ontouchstart='event.preventDefault(); func({{question.pk}})'></a>
+<a href="#" class="next" style="display:None" id="next-{{question.pk}}" onClick='event.preventDefault(); func({{question.pk}})' ontouchstart='event.preventDefault(); func({{question.pk}})' onmousedown='event.preventDefault(); func({{question.pk}})'></a>
 </div>
 
 {% elif forloop.last %}
@@ -52,14 +52,14 @@
     {% for answer in answers %}
     <li>
         <input type='radio' style='display:None' name='answer-on-{{question.pk}}' value="{{answer.answer}}" id='q{{question.pk}}-a{{forloop.counter0}}'></input>
-        <a href="#" class="answer-q{{question.pk}}-{{answer.is_Correct}} button" id='answer-{{forloop.counter0}}-on-{{question.pk}}' onClick='event.preventDefault(); lastQuestion({{question.pk}}, {{forloop.counter0}}, "{{answer.is_Correct}}", {{question.statistics.right}}, {{question.statistics.total}}, {{forloop.parentloop.counter}} )'> {{ answer.answer}}</a>
+        <a href="#" class="answer-q{{question.pk}}-{{answer.is_Correct}} button" id='answer-{{forloop.counter0}}-on-{{question.pk}}' onClick='event.preventDefault(); lastQuestion({{question.pk}}, {{forloop.counter0}}, "{{answer.is_Correct}}", {{question.statistics.right}}, {{question.statistics.total}}, {{forloop.parentloop.counter}} )' ontouchstart='event.preventDefault(); lastQuestion({{question.pk}}, {{forloop.counter0}}, "{{answer.is_Correct}}", {{question.statistics.right}}, {{question.statistics.total}}, {{forloop.parentloop.counter}} )'  onmousedown='event.preventDefault(); lastQuestion({{question.pk}}, {{forloop.counter0}}, "{{answer.is_Correct}}", {{question.statistics.right}}, {{question.statistics.total}}, {{forloop.parentloop.counter}} )'> {{ answer.answer}}</a>
     </li>
     {% endfor %}
 </ul>
 <span class='counter'>{{forloop.counter}}/{{ forloop.counter0|add:forloop.revcounter}}</span>
 <span style="display:None" id='result-correct-{{question.pk}}' class='result'>Right answer</span>
 <span style="display:None" id='result-wrong-{{question.pk}}' class='result'>Wrong answer</span>
-<a href="#" class="next" style="display:None" id="next-{{question.pk}}" onClick='event.preventDefault(); submit()' ontouchstart='event.preventDefault(); submit()'></a>
+<a href="#" class="next" style="display:None" id="next-{{question.pk}}" onClick='event.preventDefault(); submit()' ontouchstart='event.preventDefault(); submit()' onmousedown='event.preventDefault(); submit()'></a>
 </div>
 
 {% else %}
@@ -70,7 +70,8 @@
     {% for answer in answers %}
     <li>
         <input type='radio' style='display:None' name='answer-on-{{question.pk}}' value="{{answer.answer}}" id='q{{question.pk}}-a{{forloop.counter0}}'></input>
-        <a href="#" class="answer-q{{question.pk}}-{{answer.is_Correct}} button" id='answer-{{forloop.counter0}}-on-{{question.pk}}' onClick='event.preventDefault(); nextQuestion({{question.pk}}, {{forloop.counter0}}, "{{answer.is_Correct}}", {{question.statistics.right}}, {{question.statistics.total}}, {{forloop.parentloop.counter}} )'> {{ answer.answer}}</a>
+        <a href="#" class="answer-q{{question.pk}}-{{answer.is_Correct}} button" id='answer-{{forloop.counter0}}-on-{{question.pk}}' onClick='event.preventDefault(); nextQuestion({{question.pk}}, {{forloop.counter0}}, "{{answer.is_Correct}}", {{question.statistics.right}}, {{question.statistics.total}}, {{forloop.parentloop.counter}} )' ontouchstart='event.preventDefault(); nextQuestion({{question.pk}}, {{forloop.counter0}}, "{{answer.is_Correct}}", {{question.statistics.right}}, {{question.statistics.total}}, {{forloop.parentloop.counter}} )'
+        onmousedown='event.preventDefault(); nextQuestion({{question.pk}}, {{forloop.counter0}}, "{{answer.is_Correct}}", {{question.statistics.right}}, {{question.statistics.total}}, {{forloop.parentloop.counter}} )'> {{ answer.answer}}</a>
 
     </li>
     {% endfor %}
@@ -78,7 +79,7 @@
 <span class='counter'>{{forloop.counter}}/{{ forloop.counter0|add:forloop.revcounter}}</span>
 <span style="display:None" id='result-correct-{{question.pk}}' class='result'>Right answer</span>
 <span style="display:None" id='result-wrong-{{question.pk}}' class='result'>Wrong answer</span>
-<a href="#" class="next" style="display:None" id="next-{{question.pk}}" onClick='event.preventDefault(); func({{question.pk}})' ontouchstart='event.preventDefault(); func({{question.pk}})'></a>
+<a href="#" class="next" style="display:None" id="next-{{question.pk}}" onClick='event.preventDefault(); func({{question.pk}})' ontouchstart='event.preventDefault(); func({{question.pk}})' onmousedown'event.preventDefault(); func({{question.pk}})'=></a>
 </div>
 {% endif %}
 {% endfor %}

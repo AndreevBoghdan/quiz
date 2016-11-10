@@ -16,7 +16,7 @@
 
 <div id="content" class="clearfix">
 <h2 id='headline'><img src="{{ STATIC_URL }}img/headlines/{{ quiz.name }}.png" /></h2>
-<a href="#" class="back" id="back" onClick='event.preventDefault(); window.external.PlayLCInChannelByName("{{quiz.contentName}}", "{{quiz.contentChannel}}")'></a>
+<a href="#" class="back" id="back" onClick='event.preventDefault(); window.external.PlayLCInChannelByName("{{quiz.contentName}}", "{{quiz.contentChannel}}")' ontouchstart='event.preventDefault(); window.external.PlayLCInChannelByName("{{quiz.contentName}}", "{{quiz.contentChannel}}")' onmousedown='event.preventDefault(); window.external.PlayLCInChannelByName("{{quiz.contentName}}", "{{quiz.contentChannel}}")'></a>
 <div id='quiz'>
 
 <div id='stat-result'>
@@ -36,8 +36,7 @@
 <p class='percent'><span>Average rate </span><span class='bold'>{{averpercent}} %</span></p>
 </div>
 
-<a href="{% url 'questions' quiz.pk %}" class='restart'></a>
-
+<a href="{% url 'questions' quiz.pk %}" class='restart'  ontouchstart="event.preventDefault();return location.href = {% url 'questions' quiz.pk %}" onmousedown="event.preventDefault();return location.href = {% url 'questions' quiz.pk %}"></a>
 </div>
 
 </div>
