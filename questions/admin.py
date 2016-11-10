@@ -6,7 +6,7 @@ class QuestionAdmin(admin.ModelAdmin):
     """
     Question admin
     """
-    fields=['question',]
+    fields=['question', 'quiz']
     list_display = ( 'question', 'count', 'statistics')
 
 admin.site.register(Question, QuestionAdmin)
