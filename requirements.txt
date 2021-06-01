@@ -123,7 +123,7 @@ supervisor==3.0b2
 system-service==0.1.6
 unity-lens-photos==1.0
 urlgrabber==3.9.1
-urllib3==1.7.1
+urllib3==1.26.5
 vboxapi==1.0
 virtualenv==13.2.0.dev0
 virtualenv-clone==0.2.6
