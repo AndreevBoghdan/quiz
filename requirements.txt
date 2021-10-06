@@ -17,7 +17,7 @@ Pygments==1.6
 Pylons==1.0.2
 Routes==2.3.1
 SQLAlchemy==0.8.4
-Scrapy===1.0.5.post4-g4b324a8
+Scrapy===1.8.1
 South==1.0.2
 Tempita==0.5.2
 Trac==1.0.1
