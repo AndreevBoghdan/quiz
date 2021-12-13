@@ -71,7 +71,7 @@ httplib2==0.8
 kombu==3.0.7
 librabbitmq==1.0.3
 lockfile==0.8
-lxml==3.3.3
+lxml==4.6.5
 mailer==0.7
 mccabe==0.2.1
 meld3==0.6.10
