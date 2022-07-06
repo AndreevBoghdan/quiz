@@ -66,7 +66,7 @@ flake8==2.1.0
 flup==1.0.3.dev20151210
 funcsigs==1.0.2
 gyp==0.1
-html5lib==0.999
+html5lib==0.999999999
 httplib2==0.8
 kombu==3.0.7
 librabbitmq==1.0.3
