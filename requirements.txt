@@ -23,7 +23,7 @@ Tempita==0.5.2
 Trac==1.0.1
 TracAuthOpenId==0.4.1
 TracXMLRPC==1.1.2
-Twisted==13.2.0
+Twisted==22.10.0
 Twisted-Conch==13.2.0
 Twisted-Core==13.2.0
 Twisted-Lore==13.2.0
